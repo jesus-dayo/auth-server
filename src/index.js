@@ -19,6 +19,11 @@ app.post('/api/signup', async (req, res) => {
   res.send({ jwt: 'token' });
 });
 
+app.post('/api/login', async (req, res) => {
+  const user = req.body;
+  res.send({ jwt: 'token' });
+});
+
 app.listen(3001, () => {
   console.log('Starting AirAsia API on port 3001');
 });
