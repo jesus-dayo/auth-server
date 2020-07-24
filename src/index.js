@@ -1,31 +1,32 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const helmet = require('helmet');
-const morgan = require('morgan');
 require('dotenv').config();
-const { insertUser } = require('./database/user');
+
+const jwt = require('./helpers/jwt');
+const errorHandler = require('./helpers/error-handler');
 
 const app = express();
-
-app.use(helmet());
-app.use(bodyParser.json());
 app.use(cors());
-app.use(morgan('combined'));
+app.use(require('morgan')('dev'));
 
-app.post('/api/signup', async (req, res) => {
-  const newUser = req.body;
-  await insertUser(newUser);
-  res.send({ jwt: 'token' });
-});
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-app.post('/api/login', async (req, res) => {
-  const user = req.body;
-  res.send({ jwt: 'token' });
-});
+// use JWT auth to secure the api
+app.use(jwt());
 
-app.listen(3001, () => {
-  console.log('Starting AirAsia API on port 3001');
+// api routes
+app.use(require('./routes'));
+
+// global error handler
+app.use(errorHandler);
+
+// start server
+const port = process.env.NODE_ENV === 'production' ? 80 : 4000;
+
+app.listen(port, () => {
+  console.log(`Starting AirAsia API on port ${port}`);
 });
 
 module.exports = app;
