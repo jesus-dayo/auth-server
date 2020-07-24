@@ -13,7 +13,9 @@ router.put('/signup', (req, res, next) => {
     return res.status(400).send({ error: 'User required fields are empty' });
   }
   getUser(req.body).then((user) => {
-    if (user.Count > 0) { return res.status(400).send({ error: 'User already exist.' }); }
+    if (user.Count > 0) {
+      return res.status(400).send({ error: 'User already exist.' });
+    }
     bcrypt.hash(req.body.password, parseInt(SALT_ROUNDS), (err, hash) => {
       const encrypInput = { ...req.body, password: hash };
       return insertUser(encrypInput).then(() => {

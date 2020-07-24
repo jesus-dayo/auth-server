@@ -1,4 +1,4 @@
-const db = require('./dynamodb');
+const docClient = require('./dynamodb');
 
 const initialUser = {
   email: '',
@@ -21,7 +21,7 @@ const getUser = async (user) => {
     },
     ProjectionExpression: 'email, phone, password',
   };
-  const response = await db.getDocClient().scan(params).promise();
+  const response = await docClient.scan(params).promise();
   return response;
 };
 
@@ -40,7 +40,7 @@ const getSignInUser = async (user) => {
     },
     ProjectionExpression: 'email, phone, password',
   };
-  const response = await db.getDocClient().scan(params).promise();
+  const response = await docClient.scan(params).promise();
   return response;
 };
 
@@ -49,7 +49,7 @@ const insertUser = async (user) => {
     TableName: process.env.USER_TABLE,
     Item: { ...user },
   };
-  const response = await db.getDocClient().put(params, (err) => {
+  const response = await docClient.put(params, (err) => {
     if (err) console.log(err);
     else console.log('Add user successful');
   });

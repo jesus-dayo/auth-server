@@ -25,8 +25,8 @@ app.use(errorHandler);
 // start server
 const port = process.env.NODE_ENV === 'production' ? 80 : 4000;
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`Starting AirAsia API on port ${port}`);
 });
 
-module.exports = app;
+module.exports = { app, server };
