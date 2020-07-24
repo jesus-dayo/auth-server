@@ -2,10 +2,10 @@ const expressJwt = require('express-jwt');
 
 const jwt = () => {
   const secret = process.env.SECRET_KEY;
-  return expressJwt({ secret, algorithms: ['HS256'] }).unless({
+  return expressJwt({ secret, algorithms: [process.env.ENCRYPTION] }).unless({
     path: [
       '/api/signup',
-      '/api/signin',
+      '/api/login',
     ],
   });
 };
