@@ -12,7 +12,6 @@ router.post('/login', (req, res, next) => {
   }
   return getSignInUser(req.body).then((user) => {
     if (user.Count > 0) {
-      console.log('user', user);
       bcrypt.compare(req.body.password, user.Items[0].password, (err, result) => {
         if (result === true) {
           const token = jwt.sign({ sub: user.email }, process.env.SECRET_KEY, { expiresIn: '1d' });

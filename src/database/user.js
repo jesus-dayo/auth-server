@@ -49,9 +49,9 @@ const insertUser = async (user) => {
     TableName: process.env.USER_TABLE,
     Item: { ...user },
   };
-  const response = await db.getDocClient().put(params, (err, data) => {
+  const response = await db.getDocClient().put(params, (err) => {
     if (err) console.log(err);
-    else console.log('Added user:', JSON.stringify(data, null, 2));
+    else console.log('Add user successful');
   });
   return response;
 };
