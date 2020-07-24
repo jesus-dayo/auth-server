@@ -8,9 +8,6 @@
 ### Environment Variables
 - create .env file
 - add below variables
-   - AUTH0_CLIENT_ID=[AUTH0 CLIENT ID]
-   - AUTH0_DOMAIN=[AUTH0 DOMAIN]
-   - AUTH0_CLIENT_SECRET=[AUTH0 CLIENT SECRET]
    - AWS_PROFILE=[AWS Profile]
    - USER_TABLE=[Dynamodb USER Table name]
    - SECRET_KEY=[Any secret key for jwt]

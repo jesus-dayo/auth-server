@@ -23,7 +23,7 @@ app.use(require('./routes'));
 app.use(errorHandler);
 
 // start server
-const port = process.env.NODE_ENV === 'production' ? 80 : 4000;
+const port = process.env.PORT || 2000;
 
 const server = app.listen(port, () => {
   console.log(`Starting AirAsia API on port ${port}`);
