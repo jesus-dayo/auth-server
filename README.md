@@ -1,8 +1,9 @@
 # airasia
 
-# ERD
+## Architecture Diagrams
 ![erd](https://github.com/jesus-dayo/airasia/blob/master/erd.png?raw=true)
-
+![signup](https://github.com/jesus-dayo/airasia/blob/master/signup.png?raw=true)
+![signin](https://github.com/jesus-dayo/airasia/blob/master/signin.png?raw=true)
 
 ## Setup
 ### Environment Variables
