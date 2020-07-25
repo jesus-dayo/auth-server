@@ -19,12 +19,13 @@ Add aws keys into your aws/credentials file , please refer to
 https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-credentials-node.html
 for more details.
 
-### How to run locally
+### How to run locally (default port 2000)
 - checkout code
 - run -> npm install
 - add .env with environment variables
 - run -> npm run test
-- run postman collection under /postman
+- run -> npm start
+- run -> postman collections under /postman
 
 ### How to test from deployed Heroku
 - Signup: @PUT https://damp-shore-95638.herokuapp.com/api/signup

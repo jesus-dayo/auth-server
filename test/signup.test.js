@@ -2,7 +2,7 @@ const request = require('supertest');
 const AWS = require('aws-sdk-mock');
 const decache = require('decache');
 
-describe('PUT /signup', () => {
+describe('POST /signup', () => {
   let newApp;
   let newServer;
   before(() => {
@@ -18,7 +18,7 @@ describe('PUT /signup', () => {
   });
   it('signup success responds with jwt token', (done) => {
     request(newApp)
-      .put('/api/signup')
+      .post('/api/signup')
       .send({ email: 'sample@email.com', phone: '99988777', password: 'password' })
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
@@ -27,7 +27,7 @@ describe('PUT /signup', () => {
   });
   it('signup invalid responds with 400', (done) => {
     request(newApp)
-      .put('/api/signup')
+      .post('/api/signup')
       .send({ email: 'sample@email.com', invalid: '99988777', password: 'password' })
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)

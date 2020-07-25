@@ -8,7 +8,7 @@ const { getUser, insertUser } = require('../../database/user');
 
 const { SALT_ROUNDS } = process.env;
 
-router.put('/signup', (req, res, next) => {
+router.post('/signup', (req, res, next) => {
   if (!validator.isUserValid(req.body)) {
     return res.status(400).send({ error: 'User required fields are empty' });
   }
