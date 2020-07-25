@@ -1,8 +1,11 @@
 # airasia
 
 ## Architecture Diagrams
+### Entity
 ![erd](https://github.com/jesus-dayo/airasia/blob/master/erd.png?raw=true)
+### Signup Sequence
 ![signup](https://github.com/jesus-dayo/airasia/blob/master/signup.png?raw=true)
+### Signin Sequence
 ![signin](https://github.com/jesus-dayo/airasia/blob/master/signin.png?raw=true)
 
 ## Setup
