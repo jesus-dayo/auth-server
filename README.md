@@ -32,5 +32,5 @@ for more details.
 - run -> postman collections under /postman
 
 ### How to test from deployed Heroku
-- Signup: @PUT https://damp-shore-95638.herokuapp.com/api/signup
+- Signup: @POST https://damp-shore-95638.herokuapp.com/api/signup
 - Login: @POST https://damp-shore-95638.herokuapp.com/api/login
